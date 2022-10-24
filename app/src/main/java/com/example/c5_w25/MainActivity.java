@@ -9,13 +9,44 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    Button btn;
+    EditText edt;
+    private DataManager dbManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dbManager = new DataManager(this);
+        btn = (Button) findViewById(R.id.button);
+        edt = (EditText) findViewById(R.id.editEmail);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = edt.getText().toString();
+                if (email.trim().equals("")){
+                    return;
+                }
+
+                Friend friend = dbManager.selectByEmail(email);
+                if (friend != null){
+                    Toast.makeText(MainActivity.this, friend.getFirstName() + " " + friend.getLastName(),
+                            Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Email Not Found",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     @Override

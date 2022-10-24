@@ -8,4 +8,6 @@
     <string name="button_add">Add</string>
     <string name="button_back">Back</string>
     <string name="label_email">Email:</string>
+    <string name="edit_hint">Search Email Here</string>
+    <string name="button_search">Search</string>
 </resources>

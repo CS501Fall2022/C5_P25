@@ -89,4 +89,19 @@ public class DataManager extends SQLiteOpenHelper {
         db.execSQL(sqlDelete);
         db.close();
     }
+
+    public Friend selectByEmail(String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlSelect = "SELECT * FROM " + TABLE_FRIEND;
+        sqlSelect += " WHERE " + EMAIL + " = '" + email + "'";
+
+        Cursor cur = db.rawQuery(sqlSelect, null);
+        Friend friend = null;
+
+        if (cur.moveToFirst()) {
+           friend = new Friend(cur.getInt(0), cur.getString(1), cur.getString(2), cur.getString(3));
+        }
+
+        return friend;
+    }
 }
