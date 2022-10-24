@@ -19,7 +19,7 @@ public class DataManager extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase db){
-        String sqlCreate = "CREATE TABLE IF NOT EXISTS" + TABLE_FRIEND;
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS " + TABLE_FRIEND;
         sqlCreate += "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,";
         sqlCreate += " " + FIRST_NAME + "TEXT,";
         sqlCreate += " " + LAST_NAME + "TEXT, ";
@@ -37,7 +37,14 @@ public class DataManager extends SQLiteOpenHelper {
         onCreate( db );
     }
 
-    public void insert(Friend friend){
-        return;
+    public void insert( Friend friend){
+        SQLiteDatabase db = this.getWritableDatabase( );;
+        String sqlInsert = "INSERT INTO " + TABLE_FRIEND;
+        sqlInsert += " VALUES(null, '" + friend.getFirstName();
+        sqlInsert += "', '" + friend.getLastName();
+        sqlInsert += "', '" + friend.getEmail();
+        sqlInsert += "')";
+
+        db.execSQL(sqlInsert);
     }
 }
