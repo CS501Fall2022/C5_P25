@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 this.startActivity( updateIntent );
                 return true;
             case R.id.action_remove:
+                Intent deleteIntent = new Intent(this, DeleteActivity.class);
+                this.startActivity(deleteIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

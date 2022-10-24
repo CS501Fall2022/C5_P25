@@ -44,4 +44,11 @@ public class Friend {
     public String getEmail() {
         return email;
     }
+
+    @Override
+    public String toString(){
+        String s = this.id +". " + this.getFirstName() + " " + this.getLastName();
+        s += " - " + this.getEmail();
+        return s;
+    }
 }

@@ -71,4 +71,7 @@ public class DataManager extends SQLiteOpenHelper {
 
     public void updateById(int friendId, String first, String last, String email) {
     }
+
+    public void deleteById(int friendId) {
+    }
 }
