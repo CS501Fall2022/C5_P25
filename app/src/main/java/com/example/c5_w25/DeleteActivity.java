@@ -61,6 +61,11 @@ public class DeleteActivity extends AppCompatActivity {
             setContentView(scrollView);
         }
 
+        else{
+            setContentView(new ScrollView(this));
+        }
+
+
     }
 
     private class ButtonHandler implements View.OnClickListener{

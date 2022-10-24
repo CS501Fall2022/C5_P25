@@ -24,9 +24,9 @@ public class DataManager extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         String sqlCreate = "CREATE TABLE IF NOT EXISTS " + TABLE_FRIEND;
         sqlCreate += "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,";
-        sqlCreate += " " + FIRST_NAME + "TEXT,";
-        sqlCreate += " " + LAST_NAME + "TEXT, ";
-        sqlCreate += " " + EMAIL + "TEXT)";
+        sqlCreate += " " + FIRST_NAME + " TEXT,";
+        sqlCreate += " " + LAST_NAME + " TEXT, ";
+        sqlCreate += " " + EMAIL + " TEXT)";
 
         db.execSQL(sqlCreate);
         Log.w("TAG", "Created DB Table");
@@ -41,7 +41,7 @@ public class DataManager extends SQLiteOpenHelper {
     }
 
     public void insert( Friend friend){
-        SQLiteDatabase db = this.getWritableDatabase( );;
+        SQLiteDatabase db = this.getWritableDatabase( );
         String sqlInsert = "INSERT INTO " + TABLE_FRIEND;
         sqlInsert += " VALUES(null, '" + friend.getFirstName();
         sqlInsert += "', '" + friend.getLastName();
@@ -70,8 +70,23 @@ public class DataManager extends SQLiteOpenHelper {
     }
 
     public void updateById(int friendId, String first, String last, String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlUpdate = "UPDATE " + TABLE_FRIEND;
+        sqlUpdate += " SET " + FIRST_NAME + " = '" + first;
+        sqlUpdate += "', " + LAST_NAME + " = '" + last;
+        sqlUpdate += "', " + EMAIL + " = '" + email;
+        sqlUpdate += "' WHERE " + ID + " = " + friendId;
+
+        db.execSQL(sqlUpdate);
+        db.close();
     }
 
     public void deleteById(int friendId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlDelete = "DELETE FROM " + TABLE_FRIEND;
+        sqlDelete += " WHERE ID = " + friendId;
+
+        db.execSQL(sqlDelete);
+        db.close();
     }
 }
