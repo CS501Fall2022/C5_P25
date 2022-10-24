@@ -9,15 +9,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    Button btn;
-    EditText edt;
-    private DataManager dbManager;
+import java.util.ArrayList;
 
+public class MainActivity extends AppCompatActivity {
+    private Button btn;
+    private AutoCompleteTextView edt;
+    private DataManager dbManager;
+    private ArrayAdapter<String> emails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         dbManager = new DataManager(this);
         btn = (Button) findViewById(R.id.button);
-        edt = (EditText) findViewById(R.id.editEmail);
+        edt = (AutoCompleteTextView ) findViewById(R.id.editEmail);
+        updateEmails();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,5 +79,17 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        updateEmails();
+    }
+
+    public void updateEmails(){
+        emails = new ArrayAdapter<String>(this, android.R.layout.select_dialog_item, dbManager.selectEmails());;
+        edt.setThreshold(1);
+        edt.setAdapter(emails);
     }
 }

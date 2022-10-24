@@ -102,6 +102,20 @@ public class DataManager extends SQLiteOpenHelper {
            friend = new Friend(cur.getInt(0), cur.getString(1), cur.getString(2), cur.getString(3));
         }
 
+        db.close();
         return friend;
+    }
+
+    public ArrayList<String> selectEmails() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlSelect = "SELECT " + EMAIL + " FROM " + TABLE_FRIEND;
+        Cursor cur = db.rawQuery(sqlSelect, null);
+        ArrayList<String> strings = new ArrayList<String>();
+
+        while (cur.moveToNext()) {
+            strings.add(cur.getString(0));
+        }
+
+        return strings;
     }
 }
