@@ -22,7 +22,7 @@ public class InsertActivity extends AppCompatActivity {
         // Retrieve name and price
         EditText firstEditText = ( EditText ) findViewById( R.id.input_first );
         EditText lastEditText = ( EditText ) findViewById( R.id.input_last );
-        EditText emailEditText = ( EditText ) findViewById( R.id.input_last );
+        EditText emailEditText = ( EditText ) findViewById( R.id.input_email );
         String first = firstEditText.getText( ).toString( );
         String last = lastEditText.getText( ).toString( );
         String email = emailEditText.getText().toString();
