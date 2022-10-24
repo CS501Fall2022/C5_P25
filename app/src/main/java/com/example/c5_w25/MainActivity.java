@@ -2,6 +2,7 @@ package com.example.c5_w25;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.action_add:
+                Intent insertIntent = new Intent(this, InsertActivity.class);
+                this.startActivity(insertIntent);
                 return true;
             case R.id.action_edit:
                 return true;

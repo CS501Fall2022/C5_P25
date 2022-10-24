@@ -37,7 +37,7 @@ public class DataManager extends SQLiteOpenHelper {
         onCreate( db );
     }
 
-    public void insert(){
-
+    public void insert(Friend friend){
+        return;
     }
 }

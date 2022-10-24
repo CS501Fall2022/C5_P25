@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertActivity">
+
+    <TextView
+        android:id="@+id/label_first"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_first"/>
+
+    <EditText
+        android:id="@+id/input_first"
+        android:layout_toRightOf="@+id/label_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/label_first"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="50dp"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/label_last"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_first"
+        android:layout_marginTop="50dp"
+        android:text="@string/label_last" />
+
+    <EditText
+        android:id="@+id/input_last"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/label_last"
+        android:layout_alignLeft="@+id/input_first"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/label_last"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/label_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_last"
+        android:layout_marginTop="50dp"
+        android:text="@string/label_email" />
+
+    <EditText
+        android:id="@+id/input_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/label_email"
+        android:layout_alignLeft="@+id/input_first"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/label_email"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/label_email"
+        android:layout_marginTop="50dp"
+        android:onClick="insert"
+        android:text="@string/button_add" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_add"
+        android:layout_marginTop="50dp"
+        android:onClick="close"
+        android:text="@string/button_back" />
+
+</RelativeLayout>

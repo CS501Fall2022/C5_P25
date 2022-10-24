@@ -3,4 +3,9 @@
     <string name="action_add">Add</string>
     <string name="action_remove">Remove</string>
     <string name="action_edit">Edit</string>
+    <string name="label_first">First Name:</string>
+    <string name="label_last">Last Name:</string>
+    <string name="button_add">Add</string>
+    <string name="button_back">Back</string>
+    <string name="label_email">Email:</string>
 </resources>
