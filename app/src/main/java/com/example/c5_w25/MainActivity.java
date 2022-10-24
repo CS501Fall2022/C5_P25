@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                 this.startActivity(insertIntent);
                 return true;
             case R.id.action_edit:
+                Intent updateIntent = new Intent( this, UpdateActivity.class );
+                this.startActivity( updateIntent );
                 return true;
             case R.id.action_remove:
                 return true;

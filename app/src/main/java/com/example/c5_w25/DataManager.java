@@ -1,9 +1,12 @@
 package com.example.c5_w25;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 public class DataManager extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "friendDB";
@@ -46,5 +49,26 @@ public class DataManager extends SQLiteOpenHelper {
         sqlInsert += "')";
 
         db.execSQL(sqlInsert);
+        db.close();
+    }
+
+    public ArrayList<Friend> selectAll(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sqlSelect = "SELECT * FROM " + TABLE_FRIEND;
+
+        ArrayList<Friend> friends = new ArrayList<Friend>();
+
+        Cursor cur = db.rawQuery(sqlSelect, null);
+
+        while (cur.moveToNext()){
+            Friend newFriend = new Friend(cur.getInt(0), cur.getString(1), cur.getString(2), cur.getString(3));
+            friends.add(newFriend);
+        }
+
+        db.close( );
+        return friends;
+    }
+
+    public void updateById(int friendId, String first, String last, String email) {
     }
 }
